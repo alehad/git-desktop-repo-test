@@ -10,7 +10,9 @@ public class MessageService {
 
 	private static MessageService instance;
 	
-	private List<Message> messages = new ArrayList<Message>(DatabaseStub.GetInstance().getMessages().values());
+	private static DatabaseStub db = DatabaseStub.GetInstance();
+	
+	private List<Message> messages = new ArrayList<Message>(db.getMessages().values());
 	
 	private MessageService() {
 		// empty as messages now initialized at DB stub level
@@ -27,4 +29,9 @@ public class MessageService {
 		return messages;
 	}
 	
+	public Message GetMessage(long id)
+	{
+		//return messages.get((int) id);
+		return db.getMessages().get(id);
+	}
 }
