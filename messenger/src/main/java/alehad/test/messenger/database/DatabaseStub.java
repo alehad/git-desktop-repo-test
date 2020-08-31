@@ -1,5 +1,6 @@
 package alehad.test.messenger.database;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,4 +33,13 @@ public class DatabaseStub {
 		this.messages = messages;
 	}
 
+	public Message addMessage(Message message) {
+		int id = messages.size() + 1;
+		message.setId(id);
+		if (message.getCreatedOn() == null) {
+			message.setCreatedOn(new Date());
+		}
+		messages.put((long)id, message);
+		return message;
+	}
 }
