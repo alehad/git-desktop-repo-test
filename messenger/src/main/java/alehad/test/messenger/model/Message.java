@@ -10,7 +10,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Message {
 
-	private int id;
+	private long id;
 	private String message;
 	private String author;
 	private Date createdOn;
@@ -20,7 +20,7 @@ public class Message {
 	}
 	
 
-	public Message(int id, String message, String author, Date createdOn) {
+	public Message(long id, String message, String author, Date createdOn) {
 		super();
 		this.id = id;
 		this.message = message;
@@ -28,7 +28,7 @@ public class Message {
 		this.createdOn = createdOn;
 	}
 
-	public Message(int id, String message, String author) {
+	public Message(long id, String message, String author) {
 		super();
 		this.id = id;
 		this.message = message;
@@ -36,10 +36,10 @@ public class Message {
 		this.createdOn = new Date();
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getMessage() {

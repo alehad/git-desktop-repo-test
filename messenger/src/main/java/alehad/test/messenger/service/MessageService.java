@@ -29,12 +29,21 @@ public class MessageService {
 	
 	public Message getMessage(long id)
 	{
-		//return messages.get((int) id);
 		return db.getMessages().get(id);
 	}
 	
 	public Message addMessage(Message message)
 	{
 		return db.addMessage(message);
+	}
+
+	public Message updateMessage(long id, Message message)
+	{
+		return db.updateMessage(id, message);
+	}
+
+	public void deleteMessage(long id)
+	{
+		db.deleteMessage(id);
 	}
 }
