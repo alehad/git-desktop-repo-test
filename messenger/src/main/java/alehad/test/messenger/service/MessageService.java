@@ -12,8 +12,6 @@ public class MessageService {
 	
 	private static DatabaseStub db = DatabaseStub.GetInstance();
 	
-	private List<Message> messages = new ArrayList<Message>(db.getMessages().values());
-	
 	private MessageService() {
 		// empty as messages now initialized at DB stub level
 	}
@@ -26,12 +24,26 @@ public class MessageService {
 	}
 	
 	public List<Message> GetMessages() {
-		return messages;
+		return new ArrayList<Message>(db.getMessages().values());
 	}
 	
-	public Message GetMessage(long id)
+	public Message getMessage(long id)
 	{
-		//return messages.get((int) id);
 		return db.getMessages().get(id);
+	}
+	
+	public Message addMessage(Message message)
+	{
+		return db.addMessage(message);
+	}
+
+	public Message updateMessage(long id, Message message)
+	{
+		return db.updateMessage(id, message);
+	}
+
+	public void deleteMessage(long id)
+	{
+		db.deleteMessage(id);
 	}
 }
